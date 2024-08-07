@@ -1,1 +1,53 @@
+class Ecomerce {
+  String? name, description;
+  double? price;
+  
+  Ecomerce(String name, String description, double price) {
+    this.name = name;
+    this.description = description;
+    this.price = price;
+  }
+}
 
+
+class Productmanager {
+  Ecomerce? E1;
+  var products = [];
+
+  void addProduct(String name, String description, double price) {
+    E1 = Ecomerce(name, description, price);
+    products.add(E1);
+  }
+
+  void showProducts() {
+    for (var product in products) {
+      print('Name: ${product.name}');
+      print('Description: ${product.description}');
+      print('Price: ${product.price}');
+    }
+  }
+
+  void viewProduct(String name) {
+    for (var product in products) {
+      if (product.name == name) {
+        print('Name: ${product.name}');
+        print('Description: ${product.description}');
+        print('Price: ${product.price}');
+      }
+    }
+  }
+
+  void editProduct(String name, String description, double price) {
+    for (var product in products) {
+      if (product.name == name) {
+        product.name = name;
+        product.description = description;
+        product.price = price;
+      }
+    }
+  }
+
+  void deleteProduct(String name) {
+    products.removeWhere((product) => product.name == name);
+  }
+}
